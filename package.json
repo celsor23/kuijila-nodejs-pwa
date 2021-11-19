@@ -1,0 +1,33 @@
+{
+  "name": "kuijila-nodejs-pwa",
+  "version": "1.0.0",
+  "description": "Kuijila's PWA built with Node.js",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/celsor23/kuijila-nodejs-pwa.git"
+  },
+  "keywords": [
+    "pwa",
+    "kuijila"
+  ],
+  "author": "Celso Ribeiro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/celsor23/kuijila-nodejs-pwa/issues"
+  },
+  "homepage": "https://github.com/celsor23/kuijila-nodejs-pwa#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

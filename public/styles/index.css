@@ -1,0 +1,660 @@
+.hero {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  column-gap: 1rem;
+  justify-content: center;
+  justify-items: center;
+  margin: 1rem 0;
+}
+
+.howitworks {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, max-content);
+  justify-items: center;
+  row-gap: 2rem;
+}
+
+.howitworks h2 {
+  font-size: 3rem;
+  max-width: 28ch;
+  text-align: center;
+}
+
+.howitworks h2::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 50%;
+  background-color: #801010;
+  margin: 0.3rem auto;
+}
+
+.howitworks p {
+  max-width: 60ch;
+  text-align: center;
+}
+
+.howitworks .container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 6rem 0;
+}
+
+.howitworks .container .leftSide {
+  align-items: center;
+  list-style-type: none;
+  row-gap: 4rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #282828;
+}
+
+.howitworks .container .leftSide button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, max-content);
+  justify-items: center;
+  row-gap: 0.5rem;
+  height: 100%;
+  width: 50%;
+  font-weight: 600;
+}
+
+.howitworks .container .leftSide button::after {
+  content: "";
+  display: block;
+  visibility: hidden;
+  height: 2px;
+  width: 50%;
+  background-color: #801010;
+  margin: 0.3rem auto;
+}
+
+.howitworks .container .leftSide button:focus::after {
+  visibility: visible;
+}
+
+.howitworks .container .leftSide button:nth-of-type(1)::before {
+  border: 1px solid #f0f0f0;
+  border-radius: 50%;
+  height: 5rem;
+  width: 5rem;
+  content: "person_add";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Material Icons Round";
+  font-size: 3rem;
+  margin-bottom: 0 auto 0.5rem;
+  text-align: center;
+}
+
+.howitworks .container .leftSide button:nth-of-type(2)::before {
+  border: 1px solid #f0f0f0;
+  border-radius: 50%;
+  height: 5rem;
+  width: 5rem;
+  content: "question_answer";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Material Icons Round";
+  font-size: 3rem;
+  margin-bottom: 0 auto 0.5rem;
+  text-align: center;
+}
+
+.howitworks .container .leftSide button:nth-of-type(3)::before {
+  border: 1px solid #f0f0f0;
+  border-radius: 50%;
+  height: 5rem;
+  width: 5rem;
+  content: "sentiment_very_satisfied";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Material Icons Round";
+  font-size: 3rem;
+  margin-bottom: 0 auto 0.5rem;
+  text-align: center;
+}
+
+.howitworks .container .rightSide {
+  align-self: start;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, max-content);
+  row-gap: 2rem;
+}
+
+.howitworks .container .rightSide h5 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.howitworks .container .rightSide article {
+  max-width: 60ch;
+  white-space: pre-line;
+}
+
+.howitworks .container .rightSide button {
+  width: max-content;
+}
+
+.learning {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, max-content) 1fr;
+  justify-items: center;
+  row-gap: 2rem;
+}
+
+.learning h2 {
+  font-size: 3rem;
+  max-width: 28ch;
+  text-align: center;
+}
+
+.learning h2::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 50%;
+  background-color: #801010;
+  margin: 0.3rem auto;
+}
+
+.learning p {
+  max-width: 60ch;
+  text-align: center;
+}
+
+.learning .items {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  gap: 6rem;
+  margin-top: 4rem;
+}
+
+.learning .items li {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: #801010;
+  border-radius: 50%;
+  position: relative;
+  color: #fff;
+  height: 10rem;
+  width: 10rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-align: center;
+  padding-bottom: 25%;
+}
+
+.learning .items li:nth-of-type(1)::after {
+  content: "1500+";
+  display: block;
+  font-size: 3rem;
+  font-weight: 700;
+  position: absolute;
+  top: 20%;
+}
+.learning .items li:nth-of-type(2)::after {
+  content: "2000+";
+  display: block;
+  font-size: 3rem;
+  font-weight: 700;
+  position: absolute;
+  top: 20%;
+}
+.learning .items li:nth-of-type(3)::after {
+  content: "3000+";
+  display: block;
+  font-size: 3rem;
+  font-weight: 700;
+  position: absolute;
+  top: 20%;
+}
+.learning .items li:nth-of-type(4)::after {
+  content: "2800+";
+  display: block;
+  font-size: 3rem;
+  font-weight: 700;
+  position: absolute;
+  top: 20%;
+}
+
+.leftSide {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.leftSide button {
+  justify-content: center;
+  width: 100%;
+  height: 3rem;
+  padding: 0;
+}
+
+.leftSide button a {
+  animation: expand 3s ease-in-out;
+  animation-delay: 0;
+  animation-iteration-count: infinite;
+  display: flex;
+  font-size: 1.3rem;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.leftSide h1 {
+  display: flex;
+  flex-direction: column;
+  font-size: 4rem;
+  line-height: 1;
+  margin-top: 2rem;
+}
+
+.leftSide h1 span {
+  color: #801010;
+}
+
+.leftSide p {
+  width: 50ch;
+  margin: 2rem 0;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, max-content);
+  grid-auto-rows: auto;
+  row-gap: 4rem;
+}
+
+.newsletter {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, max-content) 1fr;
+  justify-items: center;
+  row-gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.newsletter h2 {
+  font-size: 3rem;
+  max-width: 28ch;
+  text-align: center;
+}
+
+.newsletter h2::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 50%;
+  background-color: #801010;
+  margin: 0.3rem auto;
+}
+
+.newsletter p {
+  max-width: 60ch;
+  text-align: center;
+}
+
+.newsletter .container {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 25px;
+  box-shadow: -10px 10px 15px 0.1px rgba(0, 0, 0, 0.02);
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  column-gap: 2rem;
+  justify-items: center;
+  align-items: center;
+}
+
+.newsletter .container .leftSide svg {
+  height: 10rem;
+  width: 10rem;
+}
+
+.newsletter .container .rightSide {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.2rem;
+  width: 80%;
+}
+
+.newsletter .container .rightSide h5 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.newsletter .container .rightSide p {
+  text-align: left;
+  width: 40ch;
+}
+
+.newsletter .container .rightSide form {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  row-gap: 0.6rem;
+}
+
+.newsletter .container .rightSide form input[type="email"] {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  height: 2.5rem;
+  padding: 1rem;
+  outline: none;
+}
+
+.newsletter .container .rightSide form button {
+  cursor: pointer;
+  position: relative;
+  background-color: #801010;
+  border: #801010;
+  border-radius: 6px;
+  box-shadow: 0px 10px 15px 0.1px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  height: 2.5rem;
+}
+
+.rightSide img {
+  max-height: 40rem;
+  max-width: calc(40rem / 1.433986);
+  height: auto;
+  width: auto;
+}
+
+.services {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, max-content);
+  justify-items: center;
+  row-gap: 2rem;
+}
+
+.services h2 {
+  font-size: 3rem;
+}
+
+.services h2::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 50%;
+  background-color: #801010;
+  margin: 0.3rem auto;
+}
+
+.services p {
+  max-width: 60ch;
+  text-align: center;
+}
+
+.servicesContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 2rem;
+  justify-items: center;
+  align-items: center;
+}
+
+.servicesContainer div {
+  background-color: #f6f6f6;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+  padding: 1rem;
+  row-gap: 1rem;
+}
+
+.servicesContainer div:first-of-type {
+  background-color: #fff;
+  box-shadow: -10px 10px 15px 0.1px rgba(0, 0, 0, 0.02);
+}
+
+.servicesContainer div h4 {
+  font-size: 1.3rem;
+}
+
+.servicesContainer div p {
+  max-width: 40ch;
+  text-align: center;
+  color: #282828;
+}
+
+.servicesContainer .perguntas::before {
+  content: "question_answer";
+  font-family: "Material Icons Round";
+  font-size: 2.5rem;
+  display: block;
+  text-align: center;
+  color: #ac3939;
+}
+
+.servicesContainer .materias::before {
+  content: "subject";
+  font-family: "Material Icons Round";
+  font-size: 2.5rem;
+  display: block;
+  text-align: center;
+  color: #3967ac;
+}
+
+.servicesContainer .resumos::before {
+  content: "summarize";
+  font-family: "Material Icons Round";
+  font-size: 2.5rem;
+  display: block;
+  text-align: center;
+  color: #107980;
+}
+
+.servicesContainer .curiosidades::before {
+  content: "lightbulb";
+  font-family: "Material Icons Round";
+  font-size: 2.5rem;
+  display: block;
+  text-align: center;
+  color: #ceaf00;
+}
+
+@media screen and (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, max-content);
+  }
+
+  .howitworks .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: max-content 1fr;
+    row-gap: 4rem;
+    align-content: start;
+    padding: 2rem 0;
+  }
+
+  .howitworks .container .leftSide {
+    flex-direction: row;
+    justify-content: center;
+    justify-self: center;
+  }
+
+  .howitworks .container .leftSide button {
+    height: 7rem;
+    width: 7rem;
+  }
+
+  .howitworks .container .rightSide {
+    justify-items: center;
+  }
+
+  .howitworks .container .rightSide h5,
+  .howitworks .container .rightSide article {
+    text-align: center;
+  }
+
+  .howitworks .container .rightSide article {
+    max-width: 40ch;
+  }
+
+  .learning h2 {
+    width: 60%;
+  }
+
+  .learning .items {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    row-gap: 2rem;
+  }
+
+  .leftSide {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .leftSide button {
+    width: 70%;
+  }
+
+  .leftSide h1 {
+    font-size: 3rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .leftSide p {
+    width: 45ch;
+    text-align: center;
+  }
+
+  .newsletter .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    transform: scale(0.9);
+  }
+
+  .rightSide img {
+    max-height: 25rem;
+    max-width: calc(25rem / 1.433986);
+    height: auto;
+    width: auto;
+  }
+
+  .howitworks h2,
+  .learning h2,
+  .newsletter h2,
+  .services h2 {
+    font-size: 2rem;
+  }
+
+  .howitworks p,
+  .learning p,
+  .newsletter p,
+  .services p {
+    max-width: 40ch;
+    text-align: center;
+  }
+
+  .servicesContainer {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4,1fr);
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1023px) {
+
+  .howitworks p {
+    max-width: 50ch;
+  }
+
+  .howitworks .container {
+    row-gap: 0;
+  }
+
+  .howitworks .container .leftSide button {
+    height: 12rem;
+    width: 12rem;
+  }
+
+  .howitworks .container .rightSide article {
+    max-width: 60ch;
+  }
+
+  .learning h2 {
+    width: 60%;
+  }
+
+  .learning .items {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .leftSide {
+    width: 80%;
+  }
+
+  .leftSide button {
+    max-width: 376px;
+  }
+
+  .newsletter .container {
+    grid-template-columns: repeat(2,max-content);
+    grid-template-rows: 1fr;
+  }
+}
+
+@media screen and (min-width: 800px) {
+
+  .hero {
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    column-gap: 1rem;
+    justify-content: center;
+    justify-items: center;
+    margin: 1rem 0;
+  }
+
+  .leftSide {
+    width: 100%;
+  }
+
+  .leftSide h1,
+  .leftSide p {
+    text-align: left;
+  }
+
+  .servicesContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 2rem;
+    justify-items: center;
+    align-items: center;
+  }
+}
+
+@keyframes expand {
+  0% {
+    font-size: 1.3rem;
+  }
+  50% {
+    font-size: 1.5rem;
+  }
+  100% {
+    font-size: 1.3rem;
+  }
+}
