@@ -11,7 +11,8 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join( __dirname, "public")));
 
 app.get("/", (req, res, next) => {
-  res.render("index");
+  console.log(req.path);
+  res.render("index", {pathname: req.path});
 });
 
 const port = process.env.PORT;

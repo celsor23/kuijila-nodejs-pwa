@@ -1,0 +1,270 @@
+.active {
+  border-bottom: 2px solid #801010;
+  font-weight: 600;
+}
+
+.block {
+  display: block;
+}
+
+/* .none {
+  display: none;
+} */
+
+.logo {
+  color: #801010;
+  justify-self: end;
+}
+
+.navbar {
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 3rem;
+  column-gap: 70%;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 0.1px 20px 0.1px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.navbarCollapse {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  grid-column: 1/-1;
+  row-gap: 1rem;
+  border-top: 1px solid #d8d8d8;
+  padding: 1rem 0 0;
+}
+
+.block {
+  display: block;
+}
+
+.navBurger {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  justify-self: center;
+  height: 100%;
+  padding: 0.5rem 0;
+  width: 100%;
+}
+
+.navBurger span {
+  background-color: #801010;
+  height: 0.1rem;
+  padding: 0 0.7rem;
+  width: 0.1rem;
+  margin: 0.3rem 0;
+}
+
+.navBurger .line1,
+.navBurger .line2 {
+  transition: transform 100ms ease-in-out;
+}
+
+.navBurger.open .line1 {
+  transform: rotate(45deg) translate(0.3rem, 0.3rem);
+}
+
+.navBurger.open .line2 {
+  transform: rotate(-45deg) translate(0.3rem, -0.3rem);
+}
+
+.searchForm,
+.menuItems,
+.navbarCollapseAuth {
+  display: flex;
+  width: 100%;
+}
+
+.menuItems,
+.navbarCollapseAuth {
+  align-items: center;
+  color: #801010;
+  flex-direction: column;
+  list-style-type: none;
+}
+
+.menuItems li,
+.navbarCollapseAuth li,
+.menuItems li a,
+.navbarCollapseAuth li a {
+  width: 100%;
+}
+
+.menuItems li,
+.navbarCollapseAuth li {
+  border-bottom: 0.1px solid #d8d8d8;
+  height: 100%;
+}
+
+.menuItems a,
+.navbarCollapseAuth a {
+  cursor: pointer;
+  display: block;
+  height: 100%;
+  padding: 0.5rem 0;
+  text-align: center;
+  border-bottom: 2px solid #80101000;
+}
+
+.navbarCollapseAuth .signup {
+  border: none;
+  display: flex;
+  justify-content: center;
+}
+
+.navbarCollapseAuth .signup a {
+  animation: expand 3s ease-in-out;
+  animation-delay: 0;
+  animation-iteration-count: infinite;
+  background-color: #801010;
+  border-radius: 500px;
+  box-shadow: 0px 2px 5px 4px rgba(0, 0, 0, 0.2);
+  height: fit-content;
+  width: 30%;
+  color: #fff;
+  position: relative;
+  padding: 0.25rem 1rem;
+}
+
+.menuItems a:hover,
+.navbarCollapseAuth .login a:hover {
+  border-bottom: 2px solid #801010;
+  font-weight: 600;
+}
+
+.navbar .navbarCollapse .menuItems li a.active,
+.navbar .navbarCollapse .navbarCollapseAuth li a.active {
+  border-bottom: 2px solid #801010;
+  font-weight: 600;
+}
+
+.searchBtn {
+  background-color: #7e0c0c;
+  border: none;
+  border-radius: 50%;
+  height: 1.5rem;
+  outline: none;
+  width: 1.5rem;
+}
+
+.searchBtn span {
+  color: #fff;
+  font-size: 1rem;
+}
+
+.searchForm {
+  background-color: #fff;
+  border: 1px solid #801010;
+  border-radius: 500px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 2rem;
+  padding: 0 0.3rem 0 0.8rem;
+  width: 80%;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+.searchForm input {
+  border: none;
+  outline: none;
+  width: 85%;
+}
+
+@media screen and (min-width: 430px) {
+  .logo {
+    justify-self: center;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .logo {
+    justify-self: center;
+  }
+
+  .navbar {
+    column-gap: 0;
+    grid-template-columns: 10% 90%;
+  }
+
+  .navBurger {
+    display: none;
+  }
+
+  .navbarCollapse {
+    border: none;
+    column-gap: 0.3rem;
+    display: grid;
+    grid-template-columns: 20% 1fr 25%;
+    column-gap: 6rem;
+    grid-column: 2 / -1;
+    grid-row: 1 / span 1;
+    height: 100%;
+    padding: 0;
+  }
+
+  .navbarCollapseAuth li:first-child {
+    display: flex;
+    justify-content: center;
+  }
+
+  .menuItems,
+  .navbarCollapseAuth {
+    flex-direction: row;
+    height: 100%;
+  }
+
+  .menuItems li,
+  .navbarCollapseAuth li {
+    border: none;
+    height: 100%;
+  }
+
+  .navbarCollapseAuth .signup {
+    align-items: center;
+    padding: 0;
+    width: 100%;
+  }
+
+  .navbarCollapseAuth .signup a {
+    padding: 0.1rem 0;
+    width: 80%;
+  }
+
+  .menuItems a,
+  .navbarCollapseAuth a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+  }
+
+  .searchBtn {
+    background-color: #801010;
+  }
+
+  .searchForm {
+    justify-self: center;
+    width: 100%;
+  }
+}
+
+@keyframes expand {
+  0% {
+    font-size: 1rem;
+  }
+  50% {
+    font-size: 1.05rem;
+  }
+  100% {
+    font-size: 1rem;
+  }
+}

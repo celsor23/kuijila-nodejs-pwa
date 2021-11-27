@@ -3,6 +3,7 @@
   <title>O Complemento Escolar | Kuijila</title>
 </head>
 <body>
+  <%- include("partials/navbar")  %> 
   <main class="main">
     <section class="hero">
       <div class="leftSide">
@@ -14,7 +15,7 @@
           commodo sapien at nisl eleifend, a fringilla nunc ultricies. Proin
           nec nisi lobortis, viverra nunc quis, vestibulum nulla.
         </p>
-        <button type="button">
+        <button class="hero__btn" type="button">
           <a href="/inscreva-se">Inscreva-se</a>
         </button>
       </div>
@@ -32,19 +33,19 @@
         commodo sapien at nisl eleifend, a fringilla nunc ultricies.
       </p>
       <div class="servicesContainer">
-        <div>
+        <div class="services__perguntas-container">
           <h4 class="perguntas">Perguntas e Respostas</h4>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
-        <div>
+        <div class="services__materias-container">
           <h4 class="materias">Matérias</h4>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
-        <div>
+        <div class="services__resumos-container">
           <h4 class="resumos">Resumos</h4>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
-        <div>
+        <div class="services__curiosidades-container">
           <h4 class="curiosidades">Curiosidades</h4>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
@@ -121,5 +122,4 @@
       </div>
     </section>
   </main>
-</body>
-</html>
+<%- include("partials/foot")  %> 
