@@ -1,4 +1,6 @@
 const express = require("express");
+const helmet = require("helmet");
+const compression = require("compression");
 const path = require("path");
 require("dotenv").config();
 
@@ -11,6 +13,8 @@ const inscrevaseRoutes = require("./routes/inscreva-se");
 app.set("views", path.join( __dirname, "views"));
 app.set("view engine", "ejs");
 
+app.use(helmet());
+app.use(compression());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join( __dirname, "public")));
 
