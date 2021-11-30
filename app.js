@@ -26,7 +26,7 @@ app.all("*", (req, res, next) => {
   res.render("404", {pathname: req.path});
 });
 
-const port = process.env.PORT;
+const port = process.env.PORT || 8080;
 
 app.listen(8080, () => {
   console.log(`Server started on port ${port}`);
