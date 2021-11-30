@@ -1,27 +1,32 @@
-<nav class="navbar">
-  <div class="logo">
-    <Link href="/">Kuijila</Link>
-  </div>
-  <div class="navBurger">
-    <span class="line1"></span>
-    <span class="line2"></span>
-  </div>
-  <div class="navbarCollapse">
-    <form class="searchForm">
-      <input name="search" type="search" placeholder="Procurar..." aria-label="Procurar" />
-      <button type="button" class="searchBtn">
-        <span class="material-icons-round">search</span>
-      </button>
-    </form>
-    <ul class="menuItems">
-      <li><a class="<%= pathname === "/perguntas" ? "active" : null %>">Perguntas</a></li>
-      <li><a class="<%= pathname === "/materias" ? "active" : null %>">Matérias</a></li>
-      <li><a class="<%= pathname === "/resumos" ? "active" : null %>">Resumos</a></li>
-      <li><a class="<%= pathname === "/curiosidades" ? "active" : null %>">Curiosidades</a></li>
-    </ul>
-    <ul class="navbarCollapseAuth">
-      <li class="login"><a class="<%= pathname === "/entrar" ? "active" : null %>">Entrar</a></li>
-      <li class="signup"><a class="<%= pathname === "/inscreva-se" ? "active" : null %>">Inscreva-se</a></li>
-    </ul>
-  </div>
-</nav>
+  <nav class="navbar">
+    <div class="logo">
+      <a href="/">Kuijila</a>
+    </div>
+    <div class="navBurger">
+      <span class="line1"></span>
+      <span class="line2"></span>
+    </div>
+    <div class="navbarCollapse">
+      <form class="searchForm">
+        <input name="search" type="search" placeholder="Procurar..." aria-label="Procurar" />
+        <button type="button" class="searchBtn">
+          <span class="material-icons-round">search</span>
+        </button>
+      </form>
+      <ul class="menuItems">
+        <li><a href="/sobre-nos" class="<%= pathname === "/sobre-nos" ? "active" : null %>">Sobre Nós</a></li>
+        <li><a href="/testemunhos" class="<%= pathname === "/testemunhos" ? "active" : null %>">Testemunhos</a></li>
+        <li><a href="/contato" class="<%= pathname === "/contato" ? "active" : null %>">Contato</a></li>
+        <!-- <li><a href="/perguntas" class="<%= pathname === "/perguntas" ? "active" : null %>">Perguntas</a></li>
+        <li><a href="/materias" class="<%= pathname === "/materias" ? "active" : null %>">Matérias</a></li>
+        <li><a href="/resumos" class="<%= pathname === "/resumos" ? "active" : null %>">Resumos</a></li>
+        <li><a href="/curiosidades" class="<%= pathname === "/curiosidades" ? "active" : null %>">Curiosidades</a></li> -->
+      </ul>
+      <ul class="navbarCollapseAuth">
+        <li><a href="/entrar" class="<%= pathname === "/entrar" ? "active" : null %>">Entrar</a></li>
+        <li><a href="/inscreva-se" class="<%= pathname === "/inscreva-se" ? "active" : null %>">Inscreva-se</a></li>
+        <!-- <li><a href="/sair" class="<%= pathname === "/sair" ? "active" : null %>">Sair</a></li>
+        <li><a href="/conta" class="<%= pathname === "/conta" ? "active" : null %>">Conta</a></li> -->
+      </ul>
+    </div>
+  </nav>

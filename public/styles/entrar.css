@@ -1,0 +1,265 @@
+:root(.maingrid) {
+  --color-primary: #801010;
+  --color-secondary: #282828;
+  --color-white: #fff;
+  --color-black: #000;
+  --ff-primary: 'Source Sans Pro', sans-serif;
+  --fw-extra-light: 200;
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-semi-bold: 600;
+  --fw-bold: 700;
+  --fw-black: 900;
+}
+
+.link {
+  border: 1px solid var(--color-secondary);
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.link::before {
+  --fw: 400;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  content: "\f39e";
+  color: var(--color-secondary);
+  font-family: "Font Awesome 5 Brands";
+  font-size: 1rem;
+  font-weight: var(--fw);
+}
+
+.link:hover {
+  --bg-color: #282828;
+  background: var(--bg-color);
+}
+
+.link:hover::before {
+  --font-color: #fff;
+  color: var(--font-color);
+}
+
+.loginForm {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  justify-self: center;
+  row-gap: 1rem;
+  width: 50%;
+}
+
+.loginForm div {
+  border: 1px solid var(--color-primary);
+  border-radius: 500px;
+  display: flex;
+  justify-content: space-between;
+  outline: none;
+  padding: 0.3rem;
+}
+
+.loginForm div input {
+  border: none;
+  outline: none;
+  margin-left: 1rem;
+}
+
+.loginForm div input[type="email"],
+.loginForm div input[type="text"] {
+  width: clamp(90%, 95%, 10rem);
+}
+
+.loginForm div input[type="password"] {
+  width: 70%;
+}
+
+.loginForm div input[type="password"]:autofill {
+  background: transparent;
+}
+
+.loginForm .email::before {
+  display: inline-block;
+  content: "email";
+  color: var(--color-primary);
+  font-family: "Material Icons Round";
+  font-size: 1.5rem;
+  font-weight: var(--fw-regular);
+  margin-left: 0.25rem;
+}
+
+.loginForm .password::before {
+  display: inline-block;
+  content: "lock";
+  color: var(--color-primary);
+  font-family: "Material Icons Round";
+  font-size: 1.5rem;
+  font-weight: var(--fw-regular);
+  margin-left: 0.25rem;
+}
+
+.mostrar-btn {
+  cursor: pointer;
+  margin: 0 0.5rem;
+  place-self: center;
+}
+
+.loginForm .btn {
+  background: transparent;
+  border: 1px solid var(--color-primary);
+  border-radius: 500px;
+  cursor: pointer;
+  justify-self: center;
+  width: max(25%, 4rem);
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.loginForm .btn:hover {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.maingrid {
+  --column-count: 4;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) repeat( var(--column-count), minmax(0, 10rem)) minmax(0, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  margin-top: 1rem;
+}
+
+.maingrid .container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, max-content);
+  grid-column: 2 / -2;
+  grid-row: 1 / -1;
+  row-gap: 2rem;
+}
+
+.maingrid .container .bottomContainer {
+  background: var(--color-primary);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  grid-row: 2 / span 1;
+  padding: 2rem 0;
+  row-gap: 1rem;
+}
+
+.maingrid .container .bottomContainer h2 {
+  color: #fff;
+  font-weight: 600;
+  place-self: center;
+  text-align: center;
+}
+
+.maingrid .container .bottomContainer p {
+  color: #fff;
+  justify-self: center;
+  text-align: center;
+  width: 45ch;
+}
+
+.maingrid .container .bottomContainer .btn {
+  background: transparent;
+  border: 1px solid #fff;
+  border-radius: 500px;
+  cursor: pointer;
+  justify-self: center;
+  width: 25%;
+  color: #fff;
+  font-weight: 700;
+}
+
+.maingrid .container .bottomContainer .btn:hover {
+  background: #fff;
+  color: #801010;
+}
+
+.maingrid .container .topContainer {
+  background: var(--color-white);
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 1rem;
+  grid-row: 1 / span 1;
+}
+
+.maingrid .container .topContainer h1 {
+  color: var(--color-black);
+  font-family: var(--ff-primary);
+  font-size: clamp(2rem, 3rem, 4rem);
+  font-weight: var(--fw-regular);
+  text-align: center;
+}
+
+.maingrid .container .topContainer h1::after {
+  content: "na sua conta";
+  color: var(--color-black);
+  display: block;
+  font-size: clamp(0.8rem, 1.2rem, 1.5rem);
+  font-weight: 300;
+}
+
+.maingrid .container .topContainer p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 300;
+}
+
+.maingrid .container .topContainer p::before,
+.maingrid .container .topContainer p::after {
+  content: "";
+  display: inline-block;
+  height: 1px;
+  width: 22%;
+  background: #28282840;
+  margin: 0 0.5rem;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  column-gap: 2rem;
+}
+
+ .social li {
+  list-style-type: none;
+  border-radius: 50%;
+  height: clamp(2.5rem, 3rem, 4vw);
+  width: clamp(2.5rem, 3rem, 4vw);
+}
+
+ .social li a {
+  border: 1px solid var(--color-primary);
+}
+
+ .social li a::before {
+  color: var(--color-primary);
+}
+
+ .social li:nth-of-type(2) a::before {
+  content: "\f1a0";
+}
+
+ .social li:nth-of-type(3) a::before {
+  content: "\f179";
+  font-size: 1.3rem;
+}
+
+.social li a:hover {
+  background: var(--color-primary);
+  border: none
+}
+
+.social li a:hover::before {
+  color: #fff;
+}

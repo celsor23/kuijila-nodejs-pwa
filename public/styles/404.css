@@ -1,0 +1,11 @@
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20rem;
+  margin-top: 6rem;
+}
+
+h1 {
+  font-size: clamp(2rem, 3rem, 4rem);
+}

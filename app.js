@@ -4,15 +4,22 @@ require("dotenv").config();
 
 const app = express();
 
+const homepageRoutes = require("./routes/index");
+const entrarRoutes = require("./routes/entrar");
+const inscrevaseRoutes = require("./routes/inscreva-se");
+
 app.set("views", path.join( __dirname, "views"));
 app.set("view engine", "ejs");
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join( __dirname, "public")));
 
-app.get("/", (req, res, next) => {
-  console.log(req.path);
-  res.render("index", {pathname: req.path});
+app.use(homepageRoutes);
+app.use("/entrar", entrarRoutes);
+app.use("/inscreva-se", inscrevaseRoutes);
+
+app.all("*", (req, res, next) => {
+  res.render("404", {pathname: req.path});
 });
 
 const port = process.env.PORT;

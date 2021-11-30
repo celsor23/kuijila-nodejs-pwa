@@ -1,3 +1,15 @@
+.content__sign-up,
+.content__q-and-a,
+.content__enjoy {
+  display: none;
+  align-items: flex-start;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+}
+
 .hero {
   display: grid;
   grid-template-columns: repeat(2, max-content);
@@ -12,7 +24,9 @@
   border: none;
   border-radius: 500px;
   background-color: #801010;
+  box-shadow: 0 0.1px 20px 0.1px rgba(0, 0, 0, 0.1);
   color: #fff;
+  position: relative;
 }
 
 .howitworks {
@@ -150,7 +164,16 @@
   white-space: pre-line;
 }
 
-.howitworks .container .rightSide button {
+.howitworks__inscreva-se__btn {
+  cursor: pointer;
+  background-color: #801010;
+  border: none;
+  border-radius: 500px;
+  box-shadow: 0 0.1px 20px 0.1px rgba(0, 0, 0, 0.1);
+  outline: none;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  position: relative;
   width: max-content;
 }
 
@@ -255,7 +278,7 @@
 }
 
 .leftSide button a {
-  animation: expand 3s ease-in-out;
+  animation: expand-cta 3s ease-in-out;
   animation-delay: 0;
   animation-iteration-count: infinite;
   display: flex;
@@ -489,6 +512,13 @@
 }
 
 @media screen and (max-width: 1024px) {
+
+  .content__sign-up,
+  .content__q-and-a,
+  .content__enjoy {
+    align-items: center;
+  }
+
   .hero {
     grid-template-columns: 1fr;
     grid-template-rows: repeat(2, max-content);
@@ -662,7 +692,7 @@
   }
 }
 
-@keyframes expand {
+@keyframes expand-cta {
   0% {
     font-size: 1.3rem;
   }

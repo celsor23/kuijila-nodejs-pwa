@@ -1,8 +1,20 @@
-const navBurger = document.querySelector(".navBurger");
-const navbarCollapse = document.querySelector(".navbarCollapse");
+const signupContent = document.querySelector(".content__sign-up");
+const qAndAContent = document.querySelector(".content__q-and-a");
+const enjoyContent = document.querySelector(".content__enjoy");
 
-navBurger.addEventListener("click", (event) => {
+signupButton.addEventListener("click", () => {
+  signupContent.classList.add("block");
+  qAndAContent.classList.remove("block");
+  enjoyContent.classList.remove("block");
+});
 
-  navbarCollapse.classList.toggle("block");
-
+qAndAButton.addEventListener("click", () => {
+  signupContent.classList.remove("block");
+  qAndAContent.classList.add("block");
+  enjoyContent.classList.remove("block");
+});
+enjoyButton.addEventListener("click", () => {
+  signupContent.classList.remove("block");
+  qAndAContent.classList.remove("block");
+  enjoyContent.classList.add("block");
 });

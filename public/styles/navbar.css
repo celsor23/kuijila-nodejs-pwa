@@ -1,8 +1,3 @@
-.active {
-  border-bottom: 2px solid #801010;
-  font-weight: 600;
-}
-
 .block {
   display: block;
 }
@@ -14,6 +9,11 @@
 .logo {
   color: #801010;
   justify-self: end;
+}
+
+.logo a {
+  height: 100%;
+  width: 100%;
 }
 
 .navbar {
@@ -113,13 +113,14 @@
   border-bottom: 2px solid #80101000;
 }
 
-.navbarCollapseAuth .signup {
+.navbarCollapseAuth li:nth-of-type(2) {
   border: none;
   display: flex;
   justify-content: center;
+  padding: 0.5rem 0;
 }
 
-.navbarCollapseAuth .signup a {
+.navbarCollapseAuth li:nth-of-type(2) a {
   animation: expand 3s ease-in-out;
   animation-delay: 0;
   animation-iteration-count: infinite;
@@ -127,20 +128,20 @@
   border-radius: 500px;
   box-shadow: 0px 2px 5px 4px rgba(0, 0, 0, 0.2);
   height: fit-content;
-  width: 30%;
+  width: 27%;
   color: #fff;
   position: relative;
-  padding: 0.25rem 1rem;
+  padding: 0.25rem 0.7rem;
 }
 
 .menuItems a:hover,
-.navbarCollapseAuth .login a:hover {
+.navbarCollapseAuth li:first-child a:hover {
   border-bottom: 2px solid #801010;
   font-weight: 600;
 }
 
-.navbar .navbarCollapse .menuItems li a.active,
-.navbar .navbarCollapse .navbarCollapseAuth li a.active {
+.menuItems li a.active,
+.navbarCollapseAuth li a.active {
   border-bottom: 2px solid #801010;
   font-weight: 600;
 }
@@ -228,14 +229,15 @@
     height: 100%;
   }
 
-  .navbarCollapseAuth .signup {
+  .navbarCollapseAuth li:nth-of-type(2) {
     align-items: center;
+    justify-content: center;
     padding: 0;
     width: 100%;
   }
 
-  .navbarCollapseAuth .signup a {
-    padding: 0.1rem 0;
+  .navbarCollapseAuth li:nth-of-type(2) a {
+    padding: 0.3rem 0;
     width: 80%;
   }
 

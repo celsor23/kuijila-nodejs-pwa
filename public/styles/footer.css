@@ -1,0 +1,225 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  gap: 2rem;
+  margin-top: 6rem;
+}
+
+.footer .top-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer .top-container > * {
+  flex-basis: calc(calc(45rem - 100%) * 999);
+  flex-grow: 1;
+}
+
+.footer .socialContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.footer .socialContainer .logo {
+  color: #000;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 1.5rem;
+}
+
+.footer .socialContainer p {
+  color: #5c5c5c;
+  text-align: center;
+  width: 40ch;
+}
+
+.footer .socialContainer .social {
+  display: flex;
+  column-gap: 1rem;
+}
+
+.footer .socialContainer .social li {
+  list-style-type: none;
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
+}
+
+.footer .socialContainer .social li:first-of-type {
+  list-style-type: none;
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
+}
+
+.footer .socialContainer .social li a {
+  border: 1px solid #282828;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.footer .socialContainer .social li .fb::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  content: "\f39e";
+  color: #282828;
+  font-family: "Font Awesome 5 Brands";
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.footer .socialContainer .social li .insta::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  content: "\f16d";
+  color: #282828;
+  font-family: "Font Awesome 5 Brands";
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.footer .socialContainer .social li .twitter::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  content: "\f099";
+  color: #282828;
+  font-family: "Font Awesome 5 Brands";
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.footer .socialContainer .social li .linkedIn::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  content: "\f0e1";
+  color: #282828;
+  font-family: "Font Awesome 5 Brands";
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.footer .socialContainer .social li .tiktok::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  content: "\e07b";
+  color: #282828;
+  font-family: "Font Awesome 5 Brands";
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.footer .socialContainer .social li .fb:hover,
+.footer .socialContainer .social li .insta:hover,
+.footer .socialContainer .social li .twitter:hover,
+.footer .socialContainer .social li .linkedIn:hover,
+.footer .socialContainer .social li .tiktok:hover {
+  background: #282828;
+}
+
+.footer .socialContainer .social li .fb:hover::before,
+.footer .socialContainer .social li .insta:hover::before,
+.footer .socialContainer .social li .twitter:hover::before,
+.footer .socialContainer .social li .linkedIn:hover::before,
+.footer .socialContainer .social li .tiktok:hover::before {
+  color: #fff;
+}
+
+.footer .footerLinksSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.footer .footerLinksSection > * {
+  flex-basis: calc(calc(20rem - 100%) * 999);
+  flex-grow: 1;
+}
+
+.footer .footerLinkSection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer .footerLinkSection h5 {
+  font-size: clamp(1.2rem, 1.5vw, 3.5rem);
+  font-weight: 600;
+}
+
+.footer .footerLinkSection ul {
+  color: #5c5c5c;
+  display: grid;
+  font-size: clamp(0.8rem, 1vw, 1.5rem);
+  font-weight: 500;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  list-style-type: none;
+  margin-top: auto;
+  margin-bottom: 1rem;
+}
+
+.footer .footerLinkSection ul li{
+  margin-top: 0.8rem;
+}
+
+.footer .footerLinkSection ul li a {
+  position: relative;
+}
+
+.footer .footerLinkSection ul li a:hover::after {
+  content: "";
+  display: block;
+  background-color: #801010;
+  height: 2px;
+  position: absolute;
+  top: 100%;
+  left: 0%;
+  width: 100%;
+}
+
+.footer .copyright {
+  background-color: #801010;
+  color: #fff;
+  grid-column: 1 / -1;
+  grid-row: 2 / span 1;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.03rem;
+  padding: 0.5rem 0;
+  text-align: center;
+  width: 100%;
+}
+
+@media screen and (max-width: 719px) {
+  .footer .footerLinkSection {
+    align-items: center;
+  }
+
+  .footer .footerLinkSection ul {
+    text-align: center;
+  }
+}
