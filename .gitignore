@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Firebase Admin SDK Service Account Folder with Service Account json key
+firebase/
