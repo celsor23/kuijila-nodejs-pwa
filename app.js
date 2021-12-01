@@ -7,10 +7,12 @@ require("dotenv").config();
 
 const app = express();
 
-const serviceAccount = require("./firebase/kuijila-firebase-adminsdk-x7se2-d5d889f59e.json");
-
 const firebaseApp = initializeApp({
-  credential: cert(serviceAccount)
+  credential: cert({
+    projectId: process.env.FIREBASE_PROJECT_ID,
+    clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+    privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, "\n")
+  })
 });
 
 const homepageRoutes = require("./routes/index");
