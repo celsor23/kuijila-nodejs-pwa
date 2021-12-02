@@ -20,7 +20,7 @@ exports.postInscrevasePage = async (req, res, next) => {
       phoneNumber: phoneNumber
     });
     const emailVerificationLink = await auth.generateEmailVerificationLink(email,{
-      url: `${req.protocol}://${req.hostname}/inscreva-se/conta`
+      url: "https://kuijila.herokuapp.com/inscreva-se/conta"
     });
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
     sgMail.send({
