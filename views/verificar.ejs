@@ -1,0 +1,25 @@
+<%- include("partials/head") %>
+  <link rel="stylesheet" href="styles/verificar.css">
+  <title>Verificar email | Kuijila</title>
+</head>
+<body>
+  <main class="maingrid">
+    <div class="container">
+      <h1>Por favor, verifique o seu email</h1>
+      <p>
+        Você está quase lá! Enviamos um email ao seguinte endereço <strong><%= user.email %> </strong>
+      </p>
+      <p>
+        Dirija-se à caixa de entrada do seu email, clique no link para
+        verificá-lo e continuar o processo de inscrição. Se, por acaso, não
+        encontrar o email enviado na sua caixa de entrada <strong>verifique a sua caixa de spam</strong>.
+      </p>
+      <p>Ainda não consegue encontrar o email?</p>
+      <button class="resend-email-btn">Reenviar Email</button>
+      <p>
+        Precisa de ajuda? <a href="/contato">Entre em contato conosco</a>
+      </p>
+    </div>
+  </main>
+  <script src="js/verificar.js"></script>
+<%- include("partials/foot")  %> 

@@ -36,8 +36,8 @@ app.use(homepageRoutes);
 app.use("/entrar", entrarRoutes);
 app.use("/inscreva-se", inscrevaseRoutes);
 
-app.all("*", (req, res, next) => {
-  res.render("404", {pathname: req.path});
+app.use("*", (req, res, next) => {
+  res.status(404).render("404", {pathname: req.path});
 });
 
 const port = process.env.PORT || 8080;

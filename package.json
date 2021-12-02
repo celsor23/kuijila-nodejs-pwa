@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/celsor23/kuijila-nodejs-pwa#readme",
   "dependencies": {
+    "@sendgrid/mail": "^7.6.0",
     "bcrypt": "^5.0.1",
     "compression": "^1.7.4",
     "dotenv": "^10.0.0",

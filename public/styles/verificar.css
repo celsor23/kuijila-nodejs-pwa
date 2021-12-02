@@ -1,0 +1,80 @@
+:root() {
+  --color-primary: #801010;
+  --color-secondary: #eee;
+  --color-white: #fff;
+  --color-black: #000;
+  --ff-primary: 'Source Sans Pro', sans-serif;
+  --fw-extra-light: 200;
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-semi-bold: 600;
+  --fw-bold: 700;
+  --fw-black: 900;
+}
+
+.body {
+  background-color: #eee;
+}
+
+.maingrid {
+  --column-count: 4;
+  display: grid;
+  grid-template-columns: minmax(1rem, 1fr) repeat( var(--column-count), minmax(0, 10rem)) minmax(1rem, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  margin-top: 3rem;
+}
+
+.maingrid .container {
+  background-color: #eee;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  grid-column: 2 / -2;
+  grid-row: 1 / -1;
+  margin: 2rem 0;
+  padding: 2rem 1rem;
+  text-align: center;
+  position: relative;
+}
+
+.maingrid .container::before {
+  position: absolute;
+  content: "Kuijila";
+  color: #801010;
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 50%;
+  font-size: clamp(1rem, 2rem, 3rem);
+  top: -3.5rem;
+}
+
+.maingrid h1 {
+  margin-top: 1rem;
+}
+
+.maingrid p {
+  max-width: 50ch;
+}
+
+.maingrid button {
+  cursor: pointer;
+  outline: none;
+  border: 1px solid #801010;
+  border-radius: 500px;
+  background-color: #801010;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  transition: background-color 100ms ease-out, color 100ms ease-out;
+}
+
+.maingrid button:hover {
+  background-color: transparent;
+  color: #801010;
+}
+
+.maingrid a {
+  text-decoration: underline;
+  color: #801010;
+}
