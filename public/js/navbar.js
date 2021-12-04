@@ -8,6 +8,17 @@ const qAndAButton = document.querySelector(".qAndAButton");
 const enjoyButton = document.querySelector(".enjoyButton");
 
 navBurger.addEventListener("click", (event) => {
+  event.stopPropagation();
   navBurger.classList.toggle("open");
+  
   navbarCollapse.classList.toggle("block");
 });
+
+navbarCollapse.addEventListener("click", (event) => {
+  event.stopPropagation();
+});
+
+document.addEventListener("click", (event) => {
+  navBurger.classList.remove("open");
+  navbarCollapse.classList.remove("block");
+})

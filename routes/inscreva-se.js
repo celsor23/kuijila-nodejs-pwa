@@ -8,4 +8,14 @@ router.get("/", inscrevaseController.getInscrevasePage);
 
 router.post("/", inscrevaseController.postInscrevasePage);
 
+router.get("/conta", inscrevaseController.getInscrevaseContaPage);
+
+router.post("/conta", inscrevaseController.postInscrevaseContaPage);
+
+router.get("/conta/precario", inscrevaseController.getInscrevasePrecarioPage);
+
+router.post("/conta/precario", inscrevaseController.postInscrevasePrecarioPage);
+
+router.get("/conta/pagamento", inscrevaseController.getInscrevasePagamentoPage);
+
 module.exports = router;

@@ -1,0 +1,40 @@
+<%- include("partials/head") %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/navbar.css">
+  <link rel="stylesheet" href="/styles/footer.css">
+  <link rel="stylesheet" href="/styles/inscreva-se__conta.css">
+  <title>Escolha o seu tipo de conta | Kuijila</title>
+</head>
+<body>
+  <%- include("partials/navbar") %> 
+  <main class="maingrid">
+    <form action="/inscreva-se/conta" method="post" class="container">
+      <h1>Formulário</h1>
+      <p>Eu sou</p>
+      <div class="accountTypesContainer">
+        <input id="estudante" type="radio" name="conta" value="estudante" />
+        <label for="estudante" class="label">
+          <p>Estudante</p>
+        </label>
+        <input id="tutor" type="radio" name="conta" value="tutor" />
+        <label for="tutor" class="label">
+          <p>Tutor</p>
+        </label>
+      </div>
+      <p class="ensino-paragraph">do ensino</p>
+      <div class="custom-select">
+        <select name="ensino">
+          <option>Escolha o ensino:</option>
+          <option value="básico">Básico</option>
+          <option value="secundário">Secundário</option>
+          <option value="superior">Superior</option>
+        </select>
+      </div>
+      <button class="btn" type="submit">Escolher o Pacote</button>
+      <!-- <button class="btn" type="submit">Proceder</button> -->
+    </form>
+  </main>
+  <%- include("partials/footer") %>
+  <script src="/js/navbar.js"></script>
+  <script src="/js/inscreva-se__conta.js"></script>
+<%- include("partials/foot")  %> 

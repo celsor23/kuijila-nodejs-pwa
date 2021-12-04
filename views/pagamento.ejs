@@ -1,0 +1,139 @@
+<%- include("partials/head") %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css" integrity="sha384-Tv5i09RULyHKMwX0E8wJUqSOaXlyu3SQxORObAI08iUwIalMmN5L6AvlPX2LMoSE" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/brands.css" integrity="sha384-S5yUroXKhsCryF2hYGm7i8RQ/ThL96qmmWD+lF5AZTdOdsxChQktVW+cKP/s4eav" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+  <link rel="stylesheet" href="/styles/navbar.css">
+  <link rel="stylesheet" href="/styles/footer.css">
+  <link rel="stylesheet" href="/styles/pagamento.css">
+  <title>Escolha o seu tipo de conta | Kuijila</title>
+</head>
+<body>
+  <%- include("partials/navbar") %> 
+  <main class="maingrid">
+    <section class="topContainer">
+      <h1>Pagamento</h1>
+      <p>Escolha o método de pagamento abaixo</p>
+      <div class="metodoDePagamentoContainer">
+        <input id="card" type="radio" name="pagamento" />
+        <label for="card" class="fa">
+          <i class="fas fa-credit-card"></i>
+        </label>
+        <input id="multicaixa" type="radio" name="pagamento" />
+        <label for="multicaixa">
+          <svg version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 225.000000 225.000000" preserveAspectRatio="xMinYMin meet">
+            <g transform="translate(0.000000,225.000000) scale(0.100000,-0.100000)">
+            <path d="M853 2049 c-12 -4 -26 -17 -32 -28 -10 -17 7 -37 142 -166 l152 -147
+            6 63 7 64 -111 107 c-60 58 -117 108 -126 111 -9 2 -26 0 -38 -4z"/>
+            <path d="M1553 1963 c-14 -5 -17 -270 -5 -370 l7 -52 49 42 48 42 -7 154 c-7
+            130 -11 157 -26 172 -19 19 -41 23 -66 12z"/>
+            <path d="M733 1876 c-45 -76 -51 -106 -30 -143 7 -13 59 -66 116 -119 76 -70
+            107 -94 119 -88 59 25 93 33 135 34 47 0 47 0 47 34 0 30 -16 49 -165 195 -91
+            88 -169 161 -173 161 -4 0 -26 -33 -49 -74z"/>
+            <path d="M1400 1929 c-55 -15 -82 -27 -102 -49 -27 -29 -28 -34 -28 -144 0
+            -151 8 -206 29 -206 15 0 65 -30 129 -76 21 -16 24 -16 42 1 19 17 20 32 20
+            257 0 131 -3 238 -7 237 -5 0 -42 -10 -83 -20z"/>
+            <path d="M292 1618 c-24 -12 -38 -48 -29 -73 5 -12 43 -15 217 -17 115 -2 210
+            -2 210 0 0 2 -19 26 -42 53 l-41 49 -146 -1 c-84 0 -156 -5 -169 -11z"/>
+            <path d="M1744 1547 c-23 -13 -204 -212 -204 -224 0 -5 9 -32 20 -61 11 -29
+            20 -70 20 -92 0 -40 0 -40 38 -39 35 1 46 10 194 172 l157 172 -77 42 c-80 44
+            -112 51 -148 30z"/>
+            <path d="M284 1447 c3 -12 10 -47 17 -77 8 -39 21 -64 44 -87 l33 -33 110 0
+            c60 0 130 3 155 6 41 6 48 10 57 38 5 17 28 54 49 83 l39 51 -22 21 c-21 20
+            -33 21 -255 21 l-233 0 6 -23z"/>
+            <path d="M1884 1303 c-179 -191 -170 -173 -88 -173 l69 0 95 106 c110 122 120
+            142 96 178 -9 14 -23 26 -30 26 -7 0 -71 -62 -142 -137z"/>
+            <path d="M279 1024 c-63 -64 -109 -119 -109 -130 0 -23 27 -64 41 -64 12 0
+            309 281 309 292 0 3 -30 8 -66 10 l-65 3 -110 -111z"/>
+            <path d="M431 956 l-163 -163 74 -47 c114 -70 119 -69 255 67 l113 113 -19 45
+            c-11 24 -21 68 -23 96 l-3 53 -35 0 c-32 0 -49 -14 -199 -164z"/>
+            <path d="M1595 983 c-37 -4 -42 -7 -59 -50 -11 -26 -34 -63 -53 -83 l-33 -37
+            23 -21 c22 -21 31 -22 259 -22 l237 0 -24 87 c-34 127 -43 133 -193 131 -64
+            -1 -135 -3 -157 -5z"/>
+            <path d="M771 786 c-20 -21 -21 -32 -21 -254 0 -138 4 -232 9 -232 20 0 145
+            32 163 41 38 20 48 62 48 196 0 70 -3 137 -6 149 -3 12 -20 26 -40 33 -18 7
+            -56 30 -83 51 l-49 39 -21 -23z"/>
+            <path d="M1280 703 c-19 -9 -60 -18 -90 -22 l-55 -6 3 -35 c2 -27 14 -45 52
+            -80 27 -25 103 -96 169 -158 l120 -113 40 70 c31 52 41 80 41 112 0 39 -5 48
+            -52 92 -95 89 -175 157 -184 156 -5 0 -25 -8 -44 -16z"/>
+            <path d="M1767 710 l-207 -5 37 -47 38 -47 110 0 c173 1 217 9 232 40 8 15 10
+            35 6 45 -8 18 -20 19 -216 14z"/>
+            <path d="M642 668 l-53 -42 3 -159 c3 -143 5 -160 22 -173 11 -8 32 -14 46
+            -14 l27 0 6 212 c4 116 5 213 4 214 -1 2 -26 -16 -55 -38z"/>
+            <path d="M1140 504 c0 -16 -3 -45 -6 -65 -6 -35 -4 -38 110 -142 124 -115 148
+            -126 186 -85 l20 22 -47 49 c-27 27 -96 94 -155 149 -102 95 -108 99 -108 72z"/>
+            </g>
+          </svg>
+        </label>
+        <input id="paypal" type="radio" name="pagamento" />
+        <label for="paypal" class="fa">
+          <i class="fab fa-paypal"></i>
+        </label>
+      </div>
+    </section>
+    <section class="bottomContainer">
+      <form action="/inscreva-se/conta/pagamento" method="post">
+        <div class="cardFormContentContainer hide">
+          <div class="cardFormContentTopContainer">
+            <h3>Endereço para Faturamento</h3>
+            <div class="camposContainer">
+              <div class="campo">
+                <label for="nome-completo">Nome Completo</label>
+                <input id="nome-completo" type="text" name="nome-completo" />
+              </div>
+              <div class="campo">
+                <label for="endereco-para-faturamento">Endereco para Faturamento</label>
+                <input id="endereco-para-faturamento" type="text" name="endereco-para-faturamento" />
+              </div>
+              <div class="campos">
+                <div class="campo">
+                  <label for="cidade">Cidade</label>
+                  <input id="cidade" type="text" name="cidade" />
+                </div>
+                <div class="campo">
+                  <label for="codigo-postal">Código Postal</label>
+                  <input id="codigo-postal" type="text" name="codigo-postal" />
+                </div>
+              </div>
+              <div class="campo">
+                <label for="pais">País</label>
+                <input id="pais" type="text" name="pais" />
+              </div>
+            </div>
+          </div>
+          <div class="cardFormContentBottomContainer">
+            <h3>Informação do Cartão</h3>
+            <div class="camposContainer">
+              <div class="campo">
+                <label for="nome-do-titular-do-cartao">Nome do Titular do Cartão</label>
+                <input id="nome-do-titular-do-cartao" type="text" name="nome-do-titular-do-cartao" />
+              </div>
+              <div class="campo">
+                <label for="numero-do-cartao">Número do Cartão</label>
+                <input id="numero-do-cartao" type="text" name="numero-do-cartao" />
+              </div>
+              <div class="campos">
+                <div class="campo">
+                  <label for="mes-de-expiracao">Mês de Expiração</label>
+                  <input id="mes-de-expiracao" type="month" name="mes-de-expiracao" />
+                </div>
+                <div class="campo">
+                  <label for="ano-de-expiracao">Ano de Expiração</label>
+                  <input id="ano-de-expiracao" type="date" name="ano-de-expiracao" />
+                </div>
+              </div>
+              <div class="campo">
+                <label for="codigo-de-seguranca">Código de Segurança</label>
+                <input id="codigo-de-seguranca" type="text" name="codigo-de-seguranca" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="btn" type="submit" disabled>Proceder</button>
+      </form>
+    </section>
+  </main>
+  <%- include("partials/footer") %>
+  <script src="/js/navbar.js"></script>
+  <script src="/js/pagamento.js"></script>
+<%- include("partials/foot")  %> 

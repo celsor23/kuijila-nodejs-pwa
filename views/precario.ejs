@@ -1,0 +1,54 @@
+<%- include("partials/head") %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/navbar.css">
+  <link rel="stylesheet" href="/styles/footer.css">
+  <link rel="stylesheet" href="/styles/precario.css">
+  <title>Escolha o seu tipo de conta | Kuijila</title>
+</head>
+<body>
+  <%- include("partials/navbar") %> 
+  <main class="maingrid">
+    <h1>Preçário</h1>
+    <form action="/inscreva-se/conta/precario" method="post">
+      <div class="container">
+        <label for="básico" class="card básico">
+          <input id="básico" type="radio" name="plano" value="básico" />
+          <h4>Básico</h4>
+          <h2>10,000 Kzs/mês</h2>
+          <ul>
+            <li>Direito à 10 perguntas por mês</li>
+            <li>Acesso ilimitado a todos resumos</li>
+            <li>Acesso ao material de 7 disciplinas</li>
+            <li>Acesso ilimitado às curiosidades</li>
+          </ul>
+        </label>
+        <label for="prêmio" class="card prêmio highlighted">
+          <input id="prêmio" type="radio" name="plano" value="prêmio" checked />
+          <h4>Prêmio</h4>
+          <h2>20,000 Kzs/mês</h2>
+          <ul>
+            <li>Direito à 20 perguntas por mês</li>
+            <li>Acesso ilimitado a todos resumos</li>
+            <li>Acesso ao material de 14 disciplinas</li>
+            <li>Acesso ilimitado às curiosidades</li>
+          </ul>
+        </label>
+        <label for="executivo" class="card executivo" >
+          <input id="executivo" type="radio" name="plano" value="executivo" />
+          <h4>Executivo</h4>
+          <h2>30,000 Kzs/mês</h2>
+          <ul>
+            <li>Direito à 30 perguntas por mês</li>
+            <li>Acesso ilimitado a todos resumos</li>
+            <li>Acesso ao material de todas disciplinas</li>
+            <li>Acesso ilimitado às curiosidades</li>
+          </ul>
+        </label>
+      </div>
+      <button class="btn" type="submit">Proceder</button>
+    </form>
+  </main>
+  <%- include("partials/footer") %>
+  <script src="/js/navbar.js"></script>
+  <script src="/js/precario.js"></script>
+<%- include("partials/foot")  %> 

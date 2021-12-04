@@ -1,6 +1,8 @@
 const { getAuth, Auth } = require("firebase-admin/auth");
 const sgMail = require("@sendgrid/mail");
 
+// "https://kuijila.herokuapp.com/inscreva-se/conta"
+
 exports.getInscrevasePage = (req, res, next) => {
   res.render("inscreva-se", {pathname: req.baseUrl});
 };
@@ -20,7 +22,7 @@ exports.postInscrevasePage = async (req, res, next) => {
       phoneNumber: phoneNumber
     });
     const emailVerificationLink = await auth.generateEmailVerificationLink(email,{
-      url: "https://kuijila.herokuapp.com/inscreva-se/conta"
+      url: "http://localhost:8080/inscreva-se/conta"
     });
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
     sgMail.send({
@@ -41,4 +43,31 @@ exports.postInscrevasePage = async (req, res, next) => {
   } catch (error) {
     console.log(error);
   }
+};
+
+exports.getInscrevaseContaPage = (req, res, next) => {
+  res.render("inscreva-se__conta", {pathname: req.baseUrl});
+};
+
+exports.postInscrevaseContaPage = (req, res, next) => {
+  const conta = req.body.conta;
+  const ensino = req.body.ensino;
+  if (conta === "estudante") {
+    res.render("precario", {pathname: req.baseUrl});
+  } else if (conta === "tutor") {
+    res.render("pagamento", {pathname: req.baseUrl});
+  }
+};
+
+exports.getInscrevasePrecarioPage = (req, res, next) => {
+  res.render("precario", {pathname: req.baseUrl});
+};
+
+exports.postInscrevasePrecarioPage = (req, res, next) => {
+  const plano = req.body.plano;
+  res.redirect("/inscreva-se/conta/pagamento");
+};
+
+exports.getInscrevasePagamentoPage = (req, res, next) => {
+  res.render("pagamento", {pathname: req.baseUrl});
 };
