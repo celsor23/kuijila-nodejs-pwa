@@ -14,6 +14,15 @@
 .logo a {
   height: 100%;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo svg {
+  height: 5rem;
+  width: 5rem;
+  fill: #801010;
 }
 
 .navbar {
