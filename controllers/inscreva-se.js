@@ -28,7 +28,7 @@ exports.postInscrevasePage = async (req, res, next) => {
     sgMail.send({
       from: "no-reply@re-memo.com",
       to: email,
-      subject: "Verifiqa o seu email para o Kuijila",
+      subject: "Verifica o seu email para o Kuijila",
       html: `
       <p>Olá ${name},</p>
       <p>Clique no link abaixo para verificar o seu endereço de email.</p>
