@@ -1,4 +1,5 @@
 const { getAuth, Auth } = require("firebase-admin/auth");
+const { getFirestore } = require("firebase-admin/firestore");
 const sgMail = require("@sendgrid/mail");
 
 // "https://kuijila.herokuapp.com/inscreva-se/conta"
@@ -21,6 +22,12 @@ exports.postInscrevasePage = async (req, res, next) => {
       password: password,
       phoneNumber: phoneNumber
     });
+
+    if (userRecord) {
+      const doc = await getFirestore(req.firebaseApp).collection("users").add(userRecord);
+      console.log(doc);
+    }
+
     const emailVerificationLink = await auth.generateEmailVerificationLink(email,{
       url: "http://localhost:8080/inscreva-se/conta"
     });
@@ -37,7 +44,7 @@ exports.postInscrevasePage = async (req, res, next) => {
       <p>Obrigado,</p>
       <p>Sua equipe do Kuijila</p>
       `
-    })
+    });
     console.log("Email sent!");
     res.render("verificar", {user: userRecord});
   } catch (error) {

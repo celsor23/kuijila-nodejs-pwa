@@ -18,6 +18,7 @@ const firebaseApp = initializeApp({
 const homepageRoutes = require("./routes/index");
 const entrarRoutes = require("./routes/entrar");
 const inscrevaseRoutes = require("./routes/inscreva-se");
+const offlineRoutes = require("./routes/offline");
 
 app.set("views", path.join( __dirname, "views"));
 app.set("view engine", "ejs");
@@ -32,9 +33,21 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, PATCH, DELETE, OPTIONS"
+  );
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.setHeader("Content-Security-Policy", "default-src *; script-src 'self' 'unsafe-inline'; style-src 'self' https://use.fontawesome.com/ https://fonts.googleapis.com/;");
+  next();
+});
+
 app.use(homepageRoutes);
 app.use("/entrar", entrarRoutes);
 app.use("/inscreva-se", inscrevaseRoutes);
+app.use("/offline", offlineRoutes);
 
 app.use("*", (req, res, next) => {
   res.status(404).render("404", {pathname: req.path});
