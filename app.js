@@ -40,7 +40,6 @@ app.use((req, res, next) => {
     "GET, POST, PUT, PATCH, DELETE, OPTIONS"
   );
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.setHeader("Content-Security-Policy", "default-src *; script-src 'self' 'unsafe-inline'; style-src 'self' https://use.fontawesome.com/ https://fonts.googleapis.com/;");
   next();
 });
 

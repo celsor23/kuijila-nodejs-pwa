@@ -1,5 +1,5 @@
-const CACHE_STATIC_NAME = "static-v13";
-const CACHE_DYNAMIC_NAME = "dynamic-v8";
+const CACHE_STATIC_NAME = "static-v1";
+const CACHE_DYNAMIC_NAME = "dynamic-v1";
 
 self.addEventListener("install", (event) => {
   console.log("[Service Worker] Installing Service Worker ...", event);
@@ -67,7 +67,6 @@ self.addEventListener("fetch", (event) => {
                   console.log(error);
                 }
               }
-              
               return matchToOfflinePage();
             });
         }

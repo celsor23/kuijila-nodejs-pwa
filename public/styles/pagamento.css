@@ -75,10 +75,29 @@
   width: 1rem; */
 }
 
+.topContainer label[for="card"],
+.topContainer label[for="paypal"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.topContainer label[for="card"] span::before {
+  content: "\f09d";
+  font-family: "Font Awesome 5 Free";
+  font-size: 4.5rem;
+}
+
 .topContainer label[for="multicaixa"] svg {
   height: 6rem;
   width: 6rem;
   fill: #801010;
+}
+
+.topContainer label[for="paypal"] span::before {
+  content: "\f1ed";
+  font-family: "Font Awesome 5 Brands";
+  font-size: 4.5rem;
 }
 
 .topContainer input {
@@ -222,8 +241,8 @@
 
 .bottomContainer .btn:disabled {
   cursor: not-allowed;
-  border: 1px solid eee;
-  color: eee;
+  border: 1px solid #fff;
+  color: #fff;
   background-color: gray;
 }
 

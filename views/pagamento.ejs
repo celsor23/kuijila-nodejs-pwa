@@ -1,8 +1,5 @@
 <%- include("partials/head") %>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/solid.css" integrity="sha384-Tv5i09RULyHKMwX0E8wJUqSOaXlyu3SQxORObAI08iUwIalMmN5L6AvlPX2LMoSE" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/brands.css" integrity="sha384-S5yUroXKhsCryF2hYGm7i8RQ/ThL96qmmWD+lF5AZTdOdsxChQktVW+cKP/s4eav" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
+  <link rel="stylesheet" href="/styles/solid.css">
   <link rel="stylesheet" href="/styles/navbar.css">
   <link rel="stylesheet" href="/styles/footer.css">
   <link rel="stylesheet" href="/styles/pagamento.css">
@@ -17,7 +14,7 @@
       <div class="metodoDePagamentoContainer">
         <input id="card" type="radio" name="pagamento" />
         <label for="card" class="fa">
-          <i class="fas fa-credit-card"></i>
+          <span class="fas fa-credit-card"></span>
         </label>
         <input id="multicaixa" type="radio" name="pagamento" />
         <label for="multicaixa">
@@ -67,7 +64,7 @@
         </label>
         <input id="paypal" type="radio" name="pagamento" />
         <label for="paypal" class="fa">
-          <i class="fab fa-paypal"></i>
+          <span></span>
         </label>
       </div>
     </section>
@@ -129,7 +126,7 @@
             </div>
           </div>
         </div>
-        <button class="btn" type="submit" disabled>Proceder</button>
+        <button class="btn" type="submit">Proceder</button>
       </form>
     </section>
   </main>

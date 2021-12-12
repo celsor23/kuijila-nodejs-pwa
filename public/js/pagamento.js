@@ -6,12 +6,14 @@ const submitBtn = document.querySelector(".btn");
 
 const cardFormContentContainer = document.querySelector(".cardFormContentContainer");
 
+enableSubmitBtn(false);
 
 cardRadioInput.addEventListener("click", () => {
   console.log("card", cardRadioInput.checked);
   console.log("multicaixa", multicaixaRadioInput.checked);
   console.log("paypal", paypalRadioInput.checked);
   toggleCardFormContentContainerDisplay(cardRadioInput.checked);
+  enableSubmitBtn(cardRadioInput.checked);
 });
 
 multicaixaRadioInput.addEventListener("click", () => {
@@ -19,6 +21,7 @@ multicaixaRadioInput.addEventListener("click", () => {
   console.log("multicaixa", multicaixaRadioInput.checked);
   console.log("paypal", paypalRadioInput.checked);
   toggleCardFormContentContainerDisplay(cardRadioInput.checked);
+  enableSubmitBtn(multicaixaRadioInput.checked);
 });
 
 paypalRadioInput.addEventListener("click", () => {
@@ -26,6 +29,7 @@ paypalRadioInput.addEventListener("click", () => {
   console.log("multicaixa", multicaixaRadioInput.checked);
   console.log("paypal", paypalRadioInput.checked);
   toggleCardFormContentContainerDisplay(cardRadioInput.checked);
+  enableSubmitBtn(paypalRadioInput.checked);
 });
 
 function toggleCardFormContentContainerDisplay(bool) {
@@ -33,5 +37,13 @@ function toggleCardFormContentContainerDisplay(bool) {
     cardFormContentContainer.classList.remove("hide");
   } else {
     cardFormContentContainer.classList.add("hide");
+  }
+}
+
+function enableSubmitBtn(bool) {
+  if (bool) {
+    submitBtn.disabled = false;
+  } else {
+    submitBtn.disabled = true;
   }
 }
