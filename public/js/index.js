@@ -13,11 +13,12 @@ qAndAButton.addEventListener("click", () => {
   qAndAContent.classList.add("block");
   enjoyContent.classList.remove("block");
 });
+
 enjoyButton.addEventListener("click", () => {
   signupContent.classList.remove("block");
   qAndAContent.classList.remove("block");
   enjoyContent.classList.add("block");
 });
 
-console.log(window.app);
-console.log(window.auth);
+// const auth = window.auth.getAuth(window.app);
+// console.log(auth);

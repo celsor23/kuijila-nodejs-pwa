@@ -1,4 +1,4 @@
-<%- include("partials/head") %>
+<%- include("partials/head.html") %>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
   <link rel="stylesheet" href="/styles/navbar.css">
   <link rel="stylesheet" href="/styles/footer.css">
@@ -6,7 +6,7 @@
   <title>Escolha o seu tipo de conta | Kuijila</title>
 </head>
 <body>
-  <%- include("partials/navbar") %> 
+  <%- include("partials/navbar.html") %> 
   <main class="maingrid">
     <h1>Preçário</h1>
     <form action="/inscreva-se/conta/precario" method="post">
@@ -48,8 +48,8 @@
       <button class="btn" type="submit">Proceder</button>
     </form>
   </main>
-  <%- include("partials/footer") %>
+  <%- include("partials/footer.html") %>
   <script src="/js/register-service-worker.js"></script>
   <script src="/js/navbar.js"></script>
   <script src="/js/precario.js"></script>
-<%- include("partials/foot")  %> 
+<%- include("partials/foot.html")  %> 

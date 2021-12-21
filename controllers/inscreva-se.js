@@ -23,10 +23,10 @@ exports.postInscrevasePage = async (req, res, next) => {
       phoneNumber: phoneNumber
     });
 
-    if (userRecord) {
-      const doc = await getFirestore(req.firebaseApp).collection("users").add(userRecord);
-      console.log(doc);
-    }
+    // if (userRecord) {
+    //   const doc = await getFirestore(req.firebaseApp).collection("users").add(userRecord.toJSON());
+    //   console.log(doc);
+    // }
 
     const emailVerificationLink = await auth.generateEmailVerificationLink(email,{
       url: "http://localhost:8080/inscreva-se/conta"

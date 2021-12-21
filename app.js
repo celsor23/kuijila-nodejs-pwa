@@ -21,7 +21,8 @@ const inscrevaseRoutes = require("./routes/inscreva-se");
 const offlineRoutes = require("./routes/offline");
 
 app.set("views", path.join( __dirname, "views"));
-app.set("view engine", "ejs");
+app.engine('html', require('ejs').renderFile);
+app.set("view engine", "html");
 
 app.use(helmet());
 app.use(compression());
@@ -40,6 +41,7 @@ app.use((req, res, next) => {
     "GET, POST, PUT, PATCH, DELETE, OPTIONS"
   );
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  // res.setHeader("Content-Security-Policy", `default-src *; script-src 'self' 'unsafe-inline' https://www.gstatic.com/ nonce-64c84785f7jds78 https://www.googletagmanager.com/; style-src 'self';`);
   next();
 });
 

@@ -1,13 +1,13 @@
-<%- include("partials/head") %>
+<%- include("partials/head.html") %>
   <link rel="stylesheet" href="/styles/navbar.css">
   <link rel="stylesheet" href="/styles/footer.css">
   <link rel="stylesheet" href="/styles/index.css">
   <title>O Complemento Escolar | Kuijila</title>
 </head>
 <body>
-  <%- include("partials/navbar")  %> 
+  <%- include("partials/navbar.html")  %> 
     <main class="main">
-      <section class="hero">
+      <section id="hero-section" class="hero">
         <div class="leftSide">
           <h1>
             O Complemento <span>Escolar</span>
@@ -159,11 +159,11 @@
         </div>
       </section>
     </main>
-  <%- include("partials/footer")  %>
+  <%- include("partials/footer.html")  %>
   <!-- <script type="module" nonce="64c84785f7jds78">
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js";
-    import { getAuth } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js";
+    import * as auth from "https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-analytics.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
@@ -183,9 +183,9 @@
     // Initialize Firebase
     window.app = initializeApp(firebaseConfig);
     window.analytics = getAnalytics(app);
-    window.auth = getAuth(app);
+    window.auth = auth;
   </script> -->
-  <script  src="/js/register-service-worker.js"></script>
-  <script  src="/js/navbar.js"></script>
-  <script  src="/js/index.js"></script>
-<%- include("partials/foot")  %> 
+  <script src="/js/register-service-worker.js"></script>
+  <script defer src="/js/navbar.js"></script>
+  <script defer src="/js/index.js"></script>
+<%- include("partials/foot.html")  %> 
