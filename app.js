@@ -12,6 +12,8 @@ const entrarRoutes = require("./routes/entrar");
 const inscrevaseRoutes = require("./routes/inscreva-se");
 const offlineRoutes = require("./routes/offline");
 
+const { setCORSAndCSPHeadersMiddleware } = require("./middlewares/cors_and_csp_headers");
+
 app.set("views", path.join( __dirname, "views"));
 app.engine('html', require('ejs').renderFile);
 app.set("view engine", "html");
@@ -21,16 +23,7 @@ app.use(compression());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join( __dirname, "public")));
 
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, PUT, PATCH, DELETE, OPTIONS"
-  );
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  // res.setHeader("Content-Security-Policy", `default-src *; script-src 'self' 'unsafe-inline' https://www.gstatic.com/ nonce-64c84785f7jds78 https://www.googletagmanager.com/; style-src 'self';`);
-  next();
-});
+app.use(setCORSAndCSPHeadersMiddleware);
 
 app.use(homepageRoutes);
 app.use("/entrar", entrarRoutes);

@@ -10,7 +10,6 @@ exports.getHomepage = (req, res, next) => {
   //   "Access-Control-Allow-Origin": "*",
   //   "Content-Security-Policy": `default-src *; script-src 'self' 'unsafe-inline' https://www.gstatic.com/ nonce-64c84785f7jds78 https://www.googletagmanager.com/; style-src 'self';`,
   // }
-  console.log(req.firebaseApp);
   // console.log(`${req.protocol}://${req.hostname}:8080/${req.baseUrl}`);
   res.render("index", {pathname: req.baseUrl});
   // res.set(cspHeaders).render("index", {pathname: req.baseUrl});
