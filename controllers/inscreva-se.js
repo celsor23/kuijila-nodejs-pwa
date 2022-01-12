@@ -1,5 +1,3 @@
-const { getAuth, Auth } = require("firebase-admin/auth");
-const { getFirestore } = require("firebase-admin/firestore");
 const sgMail = require("@sendgrid/mail");
 
 // "https://kuijila.herokuapp.com/inscreva-se/conta"
@@ -9,28 +7,27 @@ exports.getInscrevasePage = (req, res, next) => {
 };
 
 exports.postInscrevasePage = async (req, res, next) => {
-  const auth = getAuth(req.firebaseApp);
   const name = req.body.name;
   const email = req.body.email;
   const password = req.body.password;
   const phoneNumber = req.body.phoneNumber;
 
   try {
-    const userRecord = await auth.createUser({
-      displayName: name,
-      email: email,
-      password: password,
-      phoneNumber: phoneNumber
-    });
+    // const userRecord = await auth.createUser({
+    //   displayName: name,
+    //   email: email,
+    //   password: password,
+    //   phoneNumber: phoneNumber
+    // });
 
     // if (userRecord) {
     //   const doc = await getFirestore(req.firebaseApp).collection("users").add(userRecord.toJSON());
     //   console.log(doc);
     // }
 
-    const emailVerificationLink = await auth.generateEmailVerificationLink(email,{
-      url: "http://localhost:8080/inscreva-se/conta"
-    });
+    // const emailVerificationLink = await auth.generateEmailVerificationLink(email,{
+    //   url: "http://localhost:8080/inscreva-se/conta"
+    // });
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
     sgMail.send({
       from: "no-reply@re-memo.com",

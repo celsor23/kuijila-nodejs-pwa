@@ -1,19 +1,11 @@
 const express = require("express");
-const { initializeApp, cert } = require("firebase-admin/app");
+const mongoose = require("mongoose");
 const helmet = require("helmet");
 const compression = require("compression");
 const path = require("path");
 require("dotenv").config();
 
 const app = express();
-
-const firebaseApp = initializeApp({
-  credential: cert({
-    projectId: process.env.FIREBASE_PROJECT_ID,
-    clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-    privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, "\n")
-  })
-});
 
 const homepageRoutes = require("./routes/index");
 const entrarRoutes = require("./routes/entrar");
@@ -28,11 +20,6 @@ app.use(helmet());
 app.use(compression());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join( __dirname, "public")));
-
-app.use((req, res, next) => {
-  req.firebaseApp = firebaseApp;
-  next();
-});
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -56,6 +43,11 @@ app.use("*", (req, res, next) => {
 
 const port = process.env.PORT || 8080;
 
-app.listen(port, () => {
-  console.log(`Server started on port ${port}`);
-});
+mongoose.connect(process.env.MONGODB_URI)
+  .then(() => {
+    console.log("Connected to MongoDB...");
+    app.listen(port, () => {
+      console.log(`Server started on port ${port}`);
+    });
+  })
+  .catch(err => console.log("Could not connect to MongoDB...", err));
