@@ -8,4 +8,3 @@ mostrarButton.addEventListener("click", () => {
     passwordInput.setAttribute("type", "password");
   }
 });
-

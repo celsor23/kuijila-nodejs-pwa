@@ -11,6 +11,7 @@ const userSchema = new Schema({
   email: {
     type: String,
     lowercase: true,
+    unique: true,
     validate: {
       validator: function (v) {
         return /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(v);
@@ -46,6 +47,11 @@ const userSchema = new Schema({
     enum: [ 'estudante','tutor'],
     default: 'estudante'
   },
+  isEmailVerified: {
+    type: Boolean,
+    required: true,
+    default: false
+  }
 });
 
 const User = mongoose.model("User", userSchema);
