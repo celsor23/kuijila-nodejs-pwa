@@ -3,10 +3,10 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
-  name: {
+  nome: {
     type: String,
-    required: [true, 'Name required!'],
-    minlength: [5, 'Name must be at least 5 characters long!']
+    required: [true, 'Nome required!'],
+    minlength: [5, 'Nome must be at least 5 characters long!']
   },
   email: {
     type: String,
@@ -22,12 +22,6 @@ const userSchema = new Schema({
   },
   password: {
     type: String,
-    validate: {
-      validator: function(v) {
-        return /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,16}$/.test(v);
-      },
-      message: props => `Password must have at least one number and a special character (!, @, #, $, %, ^, &, *), and be between 7-16 characters long. ${props.value} is not a valid password!`
-    },
     required: [true, 'Password is required!'],
     minlength: [7, 'Password must be at least 7 characters long!'],
   },
@@ -41,19 +35,29 @@ const userSchema = new Schema({
     },
     required: [true, 'User phone number required']
   },
-  accountType: {
+  conta: {
     type: String,
     required: true,
     enum: [ 'estudante','tutor'],
     default: 'estudante'
   },
-  isEmailVerified: {
-    type: Boolean,
+  plano: {
+    type: String,
+    enum: [ 'básico', 'prêmio', 'executivo'],
+  },
+  ensino: {
+    type: String,
     required: true,
+    enum: [ 'básico','secundário', 'superior'],
+    default: 'básico'
+  },
+  isVerified: {
+    type: Boolean,
+    required: [true, 'isVerified is required and defaults to false if not set explicitly'],
     default: false
   }
 });
 
 const User = mongoose.model("User", userSchema);
 
-module.export = User;
+module.exports = User;

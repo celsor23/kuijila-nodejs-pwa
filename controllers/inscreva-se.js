@@ -1,4 +1,9 @@
+const User = require("../models/users");
+const VerificationToken = require("../models/verification_tokens");
 const sgMail = require("@sendgrid/mail");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const _ = require("lodash");
 
 // "https://kuijila.herokuapp.com/inscreva-se/conta"
 
@@ -13,23 +18,41 @@ exports.postInscrevasePage = async (req, res, next) => {
   const phoneNumber = req.body.phoneNumber;
 
   try {
-    // const userRecord = await auth.createUser({
-    //   displayName: name,
-    //   email: email,
-    //   password: password,
-    //   phoneNumber: phoneNumber
-    // });
 
-    // if (userRecord) {
-    //   const doc = await getFirestore(req.firebaseApp).collection("users").add(userRecord.toJSON());
-    //   console.log(doc);
-    // }
+    const foundUser = await User.findOne({email: email});
 
-    // const emailVerificationLink = await auth.generateEmailVerificationLink(email,{
-    //   url: "http://localhost:8080/inscreva-se/conta"
-    // });
+    if (foundUser) {
+      throw new Error("A user with this email already exists");
+    }
+
+    const saltRounds = 12;
+    const hashedPassword = await bcrypt.hash(password,saltRounds);
+
+    const user = new User({
+      nome: name,
+      email,
+      password: hashedPassword,
+      phoneNumber,
+    });
+
+    await user.save();
+
+    const generated_verification_jwt = jwt.sign(_.pick(user, ["_id"]), process.env.JWT_VERIFICATION_EMAIL_SECRET, {
+      expiresIn: 15*60
+    });
+
+    
+    const verificationToken = new VerificationToken({
+      userId: user._id,
+      token: generated_verification_jwt
+    });
+    
+    await verificationToken.save();
+
+    const emailVerificationLink = `http://localhost:8080/inscreva-se/verificar?conta=${generated_verification_jwt}`;
+    
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-    sgMail.send({
+    await sgMail.send({
       from: "no-reply@re-memo.com",
       to: email,
       subject: "Verifica o seu email para o Kuijila",
@@ -43,23 +66,70 @@ exports.postInscrevasePage = async (req, res, next) => {
       `
     });
     console.log("Email sent!");
-    res.render("verificar", {user: userRecord});
+    res.render("verificar", {user: _.pick(user, ["email"])});
   } catch (error) {
     console.log(error);
   }
+};
+
+exports.getVerificarEmailLinkRoute = async (req, res, next) => {
+  const token = req.query.conta;
+  const decoded_token = jwt.verify(token, process.env.JWT_VERIFICATION_EMAIL_SECRET);
+
+  console.log(decoded_token);
+
+  try {
+    const verification_token = await VerificationToken.findOneAndDelete({ userId: decoded_token._id });
+    console.log(verification_token);
+
+    const foundUser = await User.findById({ _id: decoded_token._id});
+    console.log(foundUser);
+
+    if (!foundUser) {
+      throw new Error("A user with this id does not exist");
+    }
+
+    foundUser.isVerified = true;
+    await foundUser.save();
+
+    res.render("inscreva-se__conta", {pathname: req.baseUrl, userId: foundUser._id});
+  } catch (error) {
+    console.log(error);
+  }
+
 };
 
 exports.getInscrevaseContaPage = (req, res, next) => {
   res.render("inscreva-se__conta", {pathname: req.baseUrl});
 };
 
-exports.postInscrevaseContaPage = (req, res, next) => {
+exports.postInscrevaseContaPage = async (req, res, next) => {
   const conta = req.body.conta;
   const ensino = req.body.ensino;
-  if (conta === "estudante") {
-    res.render("precario", {pathname: req.baseUrl});
-  } else if (conta === "tutor") {
-    res.render("pagamento", {pathname: req.baseUrl});
+  const userId = req.body.userId;
+
+  try {
+
+    const user = await User.findById(userId);
+
+    if (!user) {
+      throw new Error("[postInscrevaseContaPage] Could not find a user with this id");
+    }
+
+    if (user.ensino !== ensino) {
+      user.ensino = ensino;
+    }
+
+    if (conta === "estudante") {
+      await user.save();
+      res.render("precario", {pathname: req.baseUrl, userId});
+    } else if (conta === "tutor") {
+      user.conta = conta;
+      await user.save();
+      res.render("pagamento", {pathname: req.baseUrl, userId});
+    }
+  } catch (error) {
+    console.log(error);
   }
 };
 
@@ -67,9 +137,20 @@ exports.getInscrevasePrecarioPage = (req, res, next) => {
   res.render("precario", {pathname: req.baseUrl});
 };
 
-exports.postInscrevasePrecarioPage = (req, res, next) => {
+exports.postInscrevasePrecarioPage = async (req, res, next) => {
   const plano = req.body.plano;
-  res.redirect("/inscreva-se/conta/pagamento");
+  const userId = req.body.userId;
+
+  const user = await User.findById(userId);
+
+  if (!user) {
+    throw new Error("[postInscrevasePrecarioPage] Could not find a user with this id");
+  }
+
+  user.plano = plano;
+  await user.save();
+
+  res.render("pagamento", {pathname: req.baseUrl, userId});
 };
 
 exports.getInscrevasePagamentoPage = (req, res, next) => {
