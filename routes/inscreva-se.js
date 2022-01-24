@@ -14,6 +14,8 @@ router.post("/conta", inscrevaseController.postInscrevaseContaPage);
 
 router.get("/verificar", inscrevaseController.getVerificarEmailLinkRoute);
 
+router.post("/verificar", inscrevaseController.postVerificarPage);
+
 router.get("/conta/precario", inscrevaseController.getInscrevasePrecarioPage);
 
 router.post("/conta/precario", inscrevaseController.postInscrevasePrecarioPage);
