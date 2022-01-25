@@ -50,7 +50,7 @@ exports.postInscrevasePage = async (req, res, next) => {
     
     await verificationToken.save();
 
-    const emailVerificationLink = `http://localhost:8080/inscreva-se/verificar?conta=${generated_verification_jwt}`;
+    const emailVerificationLink = `${req.protocol}://${req.get("host")}/inscreva-se/verificar?conta=${generated_verification_jwt}`;
     
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
     await sgMail.send({
@@ -114,7 +114,7 @@ exports.postVerificarPage = async (req, res, next) => {
 
   const foundVerificationToken = await VerificationToken.findOneAndUpdate( {userId: userId}, { token: generated_verification_jwt});
 
-  const emailVerificationLink = `http://localhost:8080/inscreva-se/verificar?conta=${generated_verification_jwt}`;
+  const emailVerificationLink = `${req.protocol}://${req.get("host")}/inscreva-se/verificar?conta=${generated_verification_jwt}`;
   
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
   await sgMail.send({
