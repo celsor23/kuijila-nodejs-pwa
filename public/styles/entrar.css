@@ -169,6 +169,9 @@
 }
 
 .maingrid .container .bottomContainer .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: transparent;
   border: 1px solid #fff;
   border-radius: 500px;
