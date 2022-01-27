@@ -1,4 +1,5 @@
 const express = require("express");
+require("express-async-errors");
 const error = require("./middlewares/error");
 const mongoose = require("mongoose");
 const helmet = require("helmet");
