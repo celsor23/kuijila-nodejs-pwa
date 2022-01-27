@@ -1,4 +1,5 @@
 const express = require("express");
+const asyncMiddleware = require("../middlewares/async");
 
 const router = express.Router();
 
@@ -6,19 +7,19 @@ const inscrevaseController = require("../controllers/inscreva-se");
 
 router.get("/", inscrevaseController.getInscrevasePage);
 
-router.post("/", inscrevaseController.postInscrevasePage);
+router.post("/", asyncMiddleware(inscrevaseController.postInscrevasePage));
 
 router.get("/conta", inscrevaseController.getInscrevaseContaPage);
 
-router.post("/conta", inscrevaseController.postInscrevaseContaPage);
+router.post("/conta", asyncMiddleware(inscrevaseController.postInscrevaseContaPage));
 
-router.get("/verificar", inscrevaseController.getVerificarEmailLinkRoute);
+router.get("/verificar", asyncMiddleware(inscrevaseController.getVerificarEmailLinkRoute));
 
-router.post("/verificar", inscrevaseController.postVerificarPage);
+router.post("/verificar", asyncMiddleware(inscrevaseController.postVerificarPage));
 
 router.get("/conta/precario", inscrevaseController.getInscrevasePrecarioPage);
 
-router.post("/conta/precario", inscrevaseController.postInscrevasePrecarioPage);
+router.post("/conta/precario", asyncMiddleware(inscrevaseController.postInscrevasePrecarioPage));
 
 router.get("/conta/pagamento", inscrevaseController.getInscrevasePagamentoPage);
 

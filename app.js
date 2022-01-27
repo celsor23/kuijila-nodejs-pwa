@@ -1,4 +1,5 @@
 const express = require("express");
+const error = require("./middlewares/error");
 const mongoose = require("mongoose");
 const helmet = require("helmet");
 const compression = require("compression");
@@ -34,6 +35,8 @@ app.use("/offline", offlineRoutes);
 app.use("*", (req, res, next) => {
   res.status(404).render("404", {pathname: req.path});
 });
+
+app.use(error);
 
 const port = process.env.PORT || 8080;
 
