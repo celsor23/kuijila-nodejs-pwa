@@ -106,32 +106,36 @@ exports.postVerificarPage = async (req, res, next) => {
 
   console.log(`[postVerificarPage] email: ${email} | userId: ${userId}`);
 
-  const user = await User.findById(userId);
+  try {
+    const user = await User.findById(userId);
 
-  const generated_verification_jwt = jwt.sign(_.pick(user, ["_id"]), process.env.JWT_VERIFICATION_EMAIL_SECRET, {
-    expiresIn: 15*60,
-  });
+    const generated_verification_jwt = jwt.sign(_.pick(user, ["_id"]), process.env.JWT_VERIFICATION_EMAIL_SECRET, {
+      expiresIn: 15*60,
+    });
 
-  const foundVerificationToken = await VerificationToken.findOneAndUpdate( {userId: userId}, { token: generated_verification_jwt});
+    const foundVerificationToken = await VerificationToken.findOneAndUpdate( {userId: userId}, { token: generated_verification_jwt});
 
-  const emailVerificationLink = `${req.protocol}://${req.get("host")}/inscreva-se/verificar?conta=${generated_verification_jwt}`;
-  
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
-  await sgMail.send({
-    from: "no-reply@re-memo.com",
-    to: email,
-    subject: "Verifica o seu email para o Kuijila",
-    html: `
-    <p>Olá ${user.nome},</p>
-    <p>Clique no link abaixo para verificar o seu endereço de email.</p>
-    <p>${emailVerificationLink}</p>
-    <p>Se você não pediu para verificar esse endereço de email, pode ignorar este email.</p>
-    <p>Obrigado,</p>
-    <p>Sua equipe do Kuijila</p>
-    `
-  });
-  console.log("Email sent!");
-  res.render("verificar", {user: _.pick(user, ["email", "_id"])});
+    const emailVerificationLink = `${req.protocol}://${req.get("host")}/inscreva-se/verificar?conta=${generated_verification_jwt}`;
+    
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+    await sgMail.send({
+      from: "no-reply@re-memo.com",
+      to: email,
+      subject: "Verifica o seu email para o Kuijila",
+      html: `
+      <p>Olá ${user.nome},</p>
+      <p>Clique no link abaixo para verificar o seu endereço de email.</p>
+      <p>${emailVerificationLink}</p>
+      <p>Se você não pediu para verificar esse endereço de email, pode ignorar este email.</p>
+      <p>Obrigado,</p>
+      <p>Sua equipe do Kuijila</p>
+      `
+    });
+    console.log("Email sent!");
+    res.render("verificar", {user: _.pick(user, ["email", "_id"])});
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 exports.getInscrevaseContaPage = (req, res, next) => {
@@ -176,16 +180,20 @@ exports.postInscrevasePrecarioPage = async (req, res, next) => {
   const plano = req.body.plano;
   const userId = req.body.userId;
 
-  const user = await User.findById(userId);
+  try {
+    const user = await User.findById(userId);
 
-  if (!user) {
-    throw new Error("[postInscrevasePrecarioPage] Could not find a user with this id");
+    if (!user) {
+      throw new Error("[postInscrevasePrecarioPage] Could not find a user with this id");
+    }
+
+    user.plano = plano;
+    await user.save();
+
+    res.render("pagamento", {pathname: req.baseUrl, userId});
+  } catch (error) {
+    console.log(error);
   }
-
-  user.plano = plano;
-  await user.save();
-
-  res.render("pagamento", {pathname: req.baseUrl, userId});
 };
 
 exports.getInscrevasePagamentoPage = (req, res, next) => {
